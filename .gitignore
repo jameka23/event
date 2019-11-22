@@ -21,3 +21,6 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+/src/eventbrite/components/modules/eventbriteManager.js
+/src/eventbrite/components/modules/firebase.js
