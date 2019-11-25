@@ -4,9 +4,9 @@ import { Route } from "react-router-dom";
 import { withRouter } from "react-router";
 import Home from "./home/Home";
 import Login from "./authentication/Login";
-import API from './modules/APImanager';
 import EventbriteAPI from "./modules/eventbriteManager";
 import Register from "./authentication/Register";
+import * as firebase from "firebase";
 
 export default class AppViews extends Component {
   state = {
@@ -18,10 +18,15 @@ export default class AppViews extends Component {
 
   componentDidMount(){
     // get all state properties 
-    API.all().then(resp => this.setState({users: resp}))
-    .then(() => {
-      this.getCategories()
+    const db = firebase.database().ref().child('users');
+    const dbRef = db.child('data');
+
+    dbRef.on('value', snapshot => {
+      this.setState({
+        users: snapshot.val()
+      })
     })
+    this.getCategories()
   }
 
   //check authentication
@@ -42,6 +47,7 @@ export default class AppViews extends Component {
 
   // This component will handle a bunch of the routing to the other components
   render() {
+    console.log(this.state.users, this.state.categories)
     return (
       <>
         <Route exact path="/home" render={ (props) => {

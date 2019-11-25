@@ -3,12 +3,15 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router";
 
+
 export default class Home extends Component {
   state = {
     firstName: "",
     categoryValues: [],
     activeUser: Number(sessionStorage.getItem("userId"))
   }
+  
+
   
   componentDidMount() {
     // find the user and store the first name
@@ -20,6 +23,8 @@ export default class Home extends Component {
     if(user !== undefined){
       this.setState({firstName: user.firstName});
     }
+
+
   }
 
   // handle the multiple change 
@@ -40,6 +45,7 @@ export default class Home extends Component {
 
   render() {
     // console.log(this.state.categories)
+    console.log(this.state.data)
     return(
         <></>
     )

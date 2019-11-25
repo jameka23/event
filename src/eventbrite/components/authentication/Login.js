@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import React, { Component } from "react";
 import {withRouter} from "react-router";
+import { Input,Container, Form, Button, FormField } from 'semantic-ui-react'
 
 
 export default class Login extends Component {
@@ -15,7 +16,7 @@ export default class Login extends Component {
     handleFieldChange = event => {
         const stateToChange = {}
         stateToChange[event.target.id] = event.target.value;
-        console.log(this.state.email, this.state.password);
+        console.log(event.target.id);
         this.setState(stateToChange); 
     }
 
@@ -46,6 +47,27 @@ export default class Login extends Component {
         console.log(this.props.users)
         return(
         <>
+        <Container>
+            <Form onSubmit={this.handleLogin}>
+                <FormField>
+                    <Input
+                    label={"Email"}
+                    type={"text"}
+                    onChange={this.handleFieldChange}
+                    ></Input>
+                </FormField>
+                <FormField>
+                    <Input
+                    label={"Password"}
+                    type={"password"}
+                    onChange={this.handleFieldChange}
+                    ></Input>
+                </FormField>
+                <Button
+                type={"submit"}
+                >Submit</Button>
+            </Form>
+        </Container>
         </>
         )
     }
