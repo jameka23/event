@@ -17,16 +17,20 @@ export default class AppViews extends Component {
   
 
   componentDidMount(){
-    // get all state properties 
+    // get a reference to the firebase database
     const db = firebase.database().ref().child('users');
-    const dbRef = db.child('data');
+    
 
-    dbRef.on('value', snapshot => {
+    db.on('value', snapshot => {
+      //console.log(snapshot.val())
       this.setState({
-        users: snapshot.val()
-      })
+        // snapshot.val is an obj that has key/value pairs that are obj that we want
+        users: Object.values(snapshot.val())
+      }) 
+      
     })
     this.getCategories()
+
   }
 
   //check authentication
@@ -37,9 +41,9 @@ export default class AppViews extends Component {
   getCategories = () =>{
     EventbriteAPI.categories()
     .then(catObj =>{
-      console.log(catObj)
+      //console.log(catObj)
       this.setState({categories: catObj.categories})
-      console.log(this.state.categories)
+      //console.log(this.state.categories)
       
     })
   }
@@ -47,7 +51,7 @@ export default class AppViews extends Component {
 
   // This component will handle a bunch of the routing to the other components
   render() {
-    console.log(this.state.users, this.state.categories)
+    console.log(this.state.users)
     return (
       <>
         <Route exact path="/home" render={ (props) => {

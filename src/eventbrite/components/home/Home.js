@@ -17,11 +17,11 @@ export default class Home extends Component {
     // find the user and store the first name
     let user = this.props.users.find(u => {
       console.log(u)
-      return u.id === this.state.activeUser
+      return u.userId === this.state.activeUser
     })
     console.log(user)
     if(user !== undefined){
-      this.setState({firstName: user.firstName});
+      this.setState({firstName: user.first});
     }
 
 
@@ -45,7 +45,7 @@ export default class Home extends Component {
 
   render() {
     // console.log(this.state.categories)
-    console.log(this.state.data)
+    
     return(
         <></>
     )
