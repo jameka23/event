@@ -1,7 +1,10 @@
 /* eslint-disable react/prop-types */
 import React, { Component } from "react";
 import {withRouter} from "react-router";
-import { Input, Container, Form, Button, FormField } from 'semantic-ui-react'
+import { Input, Container, Form, Button, FormField } from 'semantic-ui-react';
+import { StyledFirebaseAuth } from 'react-firebaseui';
+import firebase from 'firebase';
+
 
 
 export default class Login extends Component {
