@@ -15,8 +15,7 @@ const uiConfig = {
     signInSuccessUrl: '/home',
     // We will display Google and Facebook as auth providers.
     signInOptions: [
-      firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-      firebase.auth.FacebookAuthProvider.PROVIDER_ID
+      firebase.auth.GoogleAuthProvider.PROVIDER_ID
     ]
   };
 
@@ -31,8 +30,10 @@ export default class Login extends Component {
     
     // handle field change...when the user enters anything in the input fields, it's automatically saved to state
     handleFieldChange = event => {
+        event.preventDefault()
         const stateToChange = {}
         stateToChange[event.target.id] = event.target.value;
+        
         //console.log(event.target.id);
         this.setState(stateToChange); 
     }
@@ -41,10 +42,8 @@ export default class Login extends Component {
     handleLogin = (event) => {
         console.log(this.state)
         event.preventDefault()
-        let user = this.props.users.find(user => {
-            return (this.state.email.toLowerCase() === user.email.toLowerCase()) && (this.state.password === user.password);
-        })
-        console.log(user)
+        firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.password)
+
 
         //handle all the field validity 
         if(this.state.email === ""){
