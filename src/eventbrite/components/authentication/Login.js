@@ -42,21 +42,8 @@ export default class Login extends Component {
     handleLogin = (event) => {
         console.log(this.state)
         event.preventDefault()
-        firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.password)
+        
 
-
-        //handle all the field validity 
-        if(this.state.email === ""){
-            alert("Please enter your email!");
-        }else if(this.state.password === ""){
-            alert("Please enter your password!");
-        }else if(this.state.password ==="" && this.state.email ===""){
-            alert("Please enter your credentials!");
-        }else if(user !== undefined){
-            // there is a match 
-            this.setState({activeUser: Number(sessionStorage.setItem("userId", user.userId))});
-            this.props.history.push("/home");
-        }
     }
     
     render(){
