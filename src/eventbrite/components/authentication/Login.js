@@ -1,8 +1,23 @@
 /* eslint-disable react/prop-types */
 import React, { Component } from "react";
 import {withRouter} from "react-router";
-import { Input, Container, Form, Button, FormField } from 'semantic-ui-react'
+import { Input, Container, Form, Button, FormField } from 'semantic-ui-react';
+import { StyledFirebaseAuth } from 'react-firebaseui';
+import firebase from 'firebase';
 
+// Initialize the FirebaseUI Widget using Firebase.
+
+// Configure FirebaseUI.
+const uiConfig = {
+    // Popup signin flow rather than redirect flow.
+    signInFlow: 'popup',
+    // Redirect to /home after sign in is successful. Alternatively you can provide a callbacks.signInSuccess function.
+    signInSuccessUrl: '/home',
+    // We will display Google and Facebook as auth providers.
+    signInOptions: [
+      firebase.auth.GoogleAuthProvider.PROVIDER_ID
+    ]
+  };
 
 export default class Login extends Component {
     // set state for Login which will be sessionStorage
@@ -12,10 +27,13 @@ export default class Login extends Component {
         activeUser: Number(sessionStorage.getItem("userId"))
     }
 
+    
     // handle field change...when the user enters anything in the input fields, it's automatically saved to state
     handleFieldChange = event => {
+        event.preventDefault()
         const stateToChange = {}
         stateToChange[event.target.id] = event.target.value;
+        
         //console.log(event.target.id);
         this.setState(stateToChange); 
     }
@@ -24,23 +42,8 @@ export default class Login extends Component {
     handleLogin = (event) => {
         console.log(this.state)
         event.preventDefault()
-        let user = this.props.users.find(user => {
-            return (this.state.email.toLowerCase() === user.email.toLowerCase()) && (this.state.password === user.password);
-        })
-        console.log(user)
+        
 
-        //handle all the field validity 
-        if(this.state.email === ""){
-            alert("Please enter your email!");
-        }else if(this.state.password === ""){
-            alert("Please enter your password!");
-        }else if(this.state.password ==="" && this.state.email ===""){
-            alert("Please enter your credentials!");
-        }else if(user !== undefined){
-            // there is a match 
-            this.setState({activeUser: Number(sessionStorage.setItem("userId", user.userId))});
-            this.props.history.push("/home");
-        }
     }
     
     render(){
@@ -81,6 +84,9 @@ export default class Login extends Component {
                 type={"submit"}
                 >Submit</Button>
             </Form>
+            <Container>
+                <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={firebase.auth()}/>
+            </Container>
         </Container>
         </>
         )
