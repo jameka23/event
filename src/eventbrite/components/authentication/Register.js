@@ -1,30 +1,25 @@
-import React, { Component } from "react";
+import React, { useState, userContext } from "react";
 import {withRouter} from "react-router";
 import { Input, Container, Form, Button, FormField } from 'semantic-ui-react';
 import firebase from 'firebase';
 
-export default class Register extends Component {
+const Register = () => {
 
-    state = {
-        loggedIn: false,
-        email: "",
-        password: ""
-    }
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [firstName, setFirstName] = useState("");
+    const [lastName, setLastName] = useState("");
 
-    componentDidMount(){
-
-    }
-
-    handleFieldChange = event => {
-        event.preventDefault()
-        const stateToChange = {}
-        stateToChange[event.target.id] = event.target.value;
+    // const handleFieldChange = event => {
+    //     event.preventDefault()
+    //     const stateToChange = {}
+    //     stateToChange[event.target.id] = event.target.value;
         
-        //console.log(event.target.id);
-        this.setState(stateToChange); 
-    }
+    //     //console.log(event.target.id);
+    //     this.setState(stateToChange); 
+    // }
 
-    handleRegister = event => {
+    const handleRegister = event => {
         event.preventDefault();
         firebase.auth()
         .createUserWithEmailAndPassword(this.state.email, this.state.password)
@@ -36,69 +31,57 @@ export default class Register extends Component {
     }
 
 
-    render(){
-        return(
-            <>
-                <Container>
-                    <p>User is logged in: {this.state.loggedIn} </p>
-                </Container>
-                <Form
-                onSubmit={this.handleRegister}
-                >
+    return(
+        <>
+            <Container>
+                <p>User is logged in: {this.state.loggedIn} </p>
+            </Container>
+            <Form
+            onSubmit={this.handleRegister}
+            >
+                <FormField>
                     <Input
+                    value={firstName}
                     id={"firstName"}
                     placeholder={"First Name"}
                     type={"text"}
-                    onChange={(event) => {
-                        console.log(event.target.id)
-                        const stateToChange = {}
-                        stateToChange[event.target.id] = event.target.value;
-
-                        this.setState(stateToChange);
-                    }}
+                    onChange={event => setFirstName(event.target.value)}
                     ></Input>
+                </FormField>
+                <FormField>
                     <Input
+                    value={lastName}
                     id={"lastName"}
                     placeholder={"Last Name"}
                     type={"text"}
-                    onChange={(event) => {
-                        console.log(event.target.id)
-                        const stateToChange = {}
-                        stateToChange[event.target.id] = event.target.value;
-
-                        this.setState(stateToChange);
-                    }}
+                    onChange={event => setLastName(event.target.value)}
                     ></Input>
+                </FormField>
+                <FormField>
                     <Input
+                    value={email}
                     id={"email"}
                     placeholder={"Email"}
                     type={"email"}
-                    onChange={(event) => {
-                        console.log(event.target.id)
-                        const stateToChange = {}
-                        stateToChange[event.target.id] = event.target.value;
-
-                        this.setState(stateToChange);
-                    }}
+                    onChange={event => setEmail(event.target.value)}
                     ></Input>
+                </FormField>
+                <FormField>                        
                     <Input
+                    value={password}
                     id={"password"}
                     placeholder={"password"}
                     type={"password"}
-                    onChange={(event) => {
-                        console.log(event.target.id)
-                        const stateToChange = {}
-                        stateToChange[event.target.id] = event.target.value;
-
-                        this.setState(stateToChange);
-                    }}
+                    onChange={event => setPassword(event.target.value)}
                     ></Input>
+                </FormField>
+                <FormField>
                     <Button
                     type={"submit"}
                     >Submit</Button>
-                </Form>
-            </>
-        )
-    }
-}
-withRouter(Register);
+                </FormField>
+            </Form>
+        </>
+    )
+};
+export default withRouter(Register);
