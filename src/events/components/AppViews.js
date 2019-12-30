@@ -6,12 +6,10 @@ import Home from "./home/Home";
 import Login from "./authentication/Login";
 import EventbriteAPI from "./modules/eventbriteManager";
 import Register from "./authentication/Register";
-
-import * as firebase from "firebase";
-import { createContext } from "vm";
+import firebase from "./modules/firebase"
 
 
-export const AuthContext = createContext(null);
+export const AuthContext = React.createContext({});
 
 const AppViews = () => {
 
