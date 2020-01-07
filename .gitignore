@@ -25,3 +25,4 @@ yarn-error.log*
 /src/eventbrite/components/modules/eventbriteManager.js
 /src/eventbrite/components/modules/firebase.js
 /src/events/modules/APImanager.js 
+/src/events/modules/firebase.js
