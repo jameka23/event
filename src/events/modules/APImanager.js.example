@@ -2,13 +2,16 @@ const apiKey = 'YOURAPIKEY';
 const remoteUrl = 'http://api.eventful.com/json/';
 
 
-// eslint-disable-next-line no-undef
 export default API = {
     categories: () => {
         return fetch(`${remoteUrl}/categories/list?...&app_key=${apiKey}`)
         .then(resp => resp.json())
     },
-    events: (userCategoryChoice) => {
-        return fetch(`${remoteUrl}/events/search?...&keyword=${userCategoryChoice}&location=Nashville&date=Future&app_key=${apiKey}`)
+    eventsZipcode: (userCategoryChoice, zipcode) => {
+        return fetch(`${remoteUrl}/events/search?...&keyword=${userCategoryChoice}&location=${zipcode}&date=Future&app_key=${apiKey}`)
+        .then(resp => resp.json())
+    },
+    eventsLocations: (userCategoryChoice, coordinates, radius) => {
+        return fetch(`${remoteUrl}/events/search?...&keyword=${userCategoryChoice}&location=${coordinates}&within=${radius}&units=miles&date=Future&app_key=${apiKey}`)
     }
 }
