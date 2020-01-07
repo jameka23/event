@@ -1,4 +1,4 @@
-const apiKey = 'YOURAPIKEY';
+const apiKey = 'kf8tCmMkrGcLQx5r';
 const remoteUrl = 'http://api.eventful.com/json/';
 
 
