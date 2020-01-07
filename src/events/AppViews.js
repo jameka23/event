@@ -13,11 +13,14 @@ class AppViews extends Component {
     const xhr = new XMLHttpRequest();
     var json_obj, status = false;
 
-    xhr.open("GET", `api.eventful.com/json/categories/list?...app_key${apiKey}`, true)
+    xhr.open("GET", `/categories/list?...app_key${apiKey}`, true)
     xhr.onload = function(e) {
       if(xhr.readyState === 4){
         if(xhr.status === 200){
           const respType = xhr.response;
+          
+          let parser = new DOMParser();
+          let doc = parser.parseFromString(respType, "application/xhtml+xml")
           console.log(respType)
           json_obj = JSON.parse(xhr.responseXML);
           status = true;
@@ -31,7 +34,8 @@ class AppViews extends Component {
     xhr.onerror = function(e) {
       console.error(xhr.statusText)
     };
-    xhr.send(null);
+    xhr.send(null); 
+
   }
 
   options = [
