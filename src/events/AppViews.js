@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import { apiKey, remoteUrl, API } from './modules/APImanager';
 import axios from 'axios';
 import { Dropdown } from 'semantic-ui-react';
+import { Form, FormField, Button } from 'semantic-ui-react';
 
 // local style for component
 const appStyle = {
@@ -13,13 +14,25 @@ const appStyle = {
 class AppViews extends Component {
   state = {
     categories : [],
-    selected: []
+    selected: [],
+    isSubmitted: false,
+    userLocation: {lat: 32, long: 32}
   }
   componentDidMount(){
     API.categories().then(categories => {
       console.log(categories)
       //store them in state
       this.setState({categories: categories})
+    })
+
+    // grab coordinates from the Web browser's geolocation
+    navigator.geolocation.getCurrentPosition(position => {
+      let coordinates = position.coords
+      let lat = coordinates.latitude
+      let lng = coordinates.longitude
+
+      //set the state for location
+      this.setState({})
     })
   }
 
@@ -31,16 +44,31 @@ class AppViews extends Component {
     console.log("event was triggered and this is the value: ", value)
   }
   
+  // event handler for submit
+  handleSubmit = (event) => {
+    // turn the submit flag to true and 
+    this.setState({isSubmitted: true});
+
+    // handle the calls to the eventful api
+    var _oArgs = {
+      app_key: apiKey,
+      category: this.state.categories[1],
+      
+    }
+  }
+
+
   render(){
     return(
       <>
         <div  style={appStyle}>
-          <Dropdown placeholder='Categories' 
-          fluid 
-          multiple 
-          selection 
-          options={this.state.categories}
-          onChange={this.handleChange}/>
+          <Form>
+            <FormField>
+              <Dropdown placeholder='Categories' fluid multiple selection options={this.state.categories} onChange={this.handleChange}/>
+            </FormField>
+            <Button onSubmit={this.handleSubmit}>Submit</Button>
+          </Form>
+          
         </div>
       </>
     )
