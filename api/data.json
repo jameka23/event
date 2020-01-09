@@ -1,0 +1,149 @@
+{
+    "category": [
+        {
+            "value": "Concerts & Tour Dates",
+            "text": "Concerts & Tour Dates",
+            "key": "music"
+        },
+        {
+            "value": "Conferences & Tradeshows",
+            "text": "Conferences & Tradeshows",
+            "key": "conference"
+        },
+        {
+            "value": "Comedy",
+            "text": "Comedy",
+            "key": "comedy"
+        },
+        {
+            "value": "Education",
+            "text": "Education",
+            "key": "learning_education"
+        },
+        {
+            "value": "Kids & Family",
+            "text": "Kids & Family",
+            "key": "family_fun_kids"
+        },
+        {
+            "value": "Festivals",
+            "text": "Festivals",
+            "key": "festivals_parades"
+        },
+        {
+            "value": "Film",
+            "text": "Film",
+            "key": "movies_film"
+        },
+        {
+            "value": "Food & Wine",
+            "text": "Food & Wine",
+            "key": "food"
+        },
+        {
+            "value": "Fundraising & Charity",
+            "text":"Fundraising & Charity",
+            "key": "fundraisers"
+        },
+        {
+            "value": "Art Galleries & Exhibits",
+            "text": "Art Galleries & Exhibits",
+            "key": "art"
+        },
+        {
+            "value": "Health & Wellness",
+            "text": "Health & Wellness",
+            "key": "support"
+        },
+        {
+            "value": "Holiday",
+            "text": "Holiday",
+            "key": "holiday"
+        },
+        {
+            "value": "Literary & Books",
+            "text": "Literary & Books",
+            "key": "books"
+        },
+        {
+            "value": "Museums & Attractions",
+            "text": "Museums & Attractions",
+            "key": "attractions"
+        },
+        {
+            "value": "Neighborhood",
+            "text": "Neighborhood",
+            "key": "community"
+        },
+        {
+            "value": "Business & Networking",
+            "text": "Business & Networking",
+            "key": "business"
+        },
+        {
+            "value": "Nightlife & Singles",
+            "text": "Nightlife & Singles",
+            "key": "singles_social"
+        },
+        {
+            "value": "University & Alumni",
+            "text": "University & Alumni",
+            "key": "schools_alumni"
+        },
+        {
+            "value": "Organizations & Meetups",
+            "text": "Organizations & Meetups",
+            "key": "clubs_associations"
+        },
+        {
+            "value": "Outdoors & Recreation",
+            "text": "Outdoors & Recreation",
+            "key": "outdoors_recreation"
+        },
+        {
+            "value": "Performing Arts",
+            "text": "Performing Arts",
+            "key": "performing_arts"
+        },
+        {
+            "value": "Pets",
+            "text": "Pets",
+            "key": "animals"
+        },
+        {
+            "value": "Politics & Activism",
+            "text": "Politics & Activism",
+            "key": "politics_activism"
+        },
+        {
+            "value": "Sales & Retail",
+            "text": "Sales & Retail",
+            "key": "sales"
+        },
+        {
+            "value": "Science",
+            "text": "Science",
+            "key": "science"
+        },
+        {
+            "value": "Religion & Spirituality",
+            "text": "Religion & Spirituality",
+            "key": "religion_spirituality"
+        },
+        {
+            "value": "Sports",
+            "text": "Sports",
+            "key": "sports"
+        },
+        {
+            "value": "Technology",
+            "text": "Technology",
+            "key": "technology"
+        },
+        {
+            "value": "Other & Miscellaneous",
+            "text": "Other & Miscellaneous",
+            "key": "other"
+        }
+    ]
+}
