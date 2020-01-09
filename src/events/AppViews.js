@@ -22,9 +22,6 @@ class AppViews extends Component {
     })
   }
 
-  options = [
-    {key: 'me', text: 'Jameka', value: 'Jameka'}
-  ]
   
   render(){
     return(
