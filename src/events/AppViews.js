@@ -12,7 +12,8 @@ const appStyle = {
 
 class AppViews extends Component {
   state = {
-    categories : []
+    categories : [],
+    selected: []
   }
   componentDidMount(){
     API.categories().then(categories => {
@@ -22,12 +23,24 @@ class AppViews extends Component {
     })
   }
 
+  // using deconstructing assignment, I'm able to pass in the values of the event
+  // weird 
+  handleChange  = (event, {value}) => {
+    event.preventDefault();
+    // grab each event
+    console.log("event was triggered and this is the value: ", value)
+  }
   
   render(){
     return(
       <>
         <div  style={appStyle}>
-          <Dropdown placeholder='Categories' fluid multiple selection options={this.state.categories}/>
+          <Dropdown placeholder='Categories' 
+          fluid 
+          multiple 
+          selection 
+          options={this.state.categories}
+          onChange={this.handleChange}/>
         </div>
       </>
     )
