@@ -10,13 +10,16 @@ const appStyle = {
   margin: '20% 30% 0% 30%'
 }
 
+const spanStyle = {
+  marginTop: '2%'
+}
 
 class AppViews extends Component {
   state = {
     categories : [],
     selected: [],
     isSubmitted: false,
-    userLocation: {lat: 32, long: 32}
+    userLocation: {lat: 32, long: 32} // default value is Nashville 
   }
   componentDidMount(){
     API.categories().then(categories => {
@@ -32,22 +35,25 @@ class AppViews extends Component {
       let lng = coordinates.longitude
 
       //set the state for location
-      this.setState({})
+      this.setState({userLocation: {lat: lat, long: lng}})
     })
   }
 
   // using deconstructing assignment, I'm able to pass in the values of the event
   // weird 
   handleChange  = (event, {value}) => {
-    event.preventDefault();
+    console.log(typeof(value))
+    let choices = value;
+
+    this.setState({selected: choices})
     // grab each event
-    console.log("event was triggered and this is the value: ", value)
+    console.log("event was triggered and this is the value: ",value, this.state.selected)
   }
   
   // event handler for submit
   handleSubmit = (event) => {
-    // turn the submit flag to true and 
-    this.setState({isSubmitted: true});
+    console.log("this is the value",event.target)
+    
 
     // handle the calls to the eventful api
     var _oArgs = {
@@ -62,11 +68,12 @@ class AppViews extends Component {
     return(
       <>
         <div  style={appStyle}>
-          <Form>
+          <Form onSubmit={this.handleSubmit}>
             <FormField>
-              <Dropdown placeholder='Categories' fluid multiple selection options={this.state.categories} onChange={this.handleChange}/>
+              <Dropdown id={this.state.selected} placeholder='Categories' fluid multiple selection options={this.state.categories} onChange={this.handleChange}/>
+              <span>Choose up to 3 categories.</span>
             </FormField>
-            <Button onSubmit={this.handleSubmit}>Submit</Button>
+            <Button>Submit</Button>
           </Form>
           
         </div>
