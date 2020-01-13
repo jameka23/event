@@ -42,19 +42,29 @@ class AppViews extends Component {
   // using deconstructing assignment, I'm able to pass in the values of the event
   // weird 
   handleChange  = (event, {value}) => {
-    console.log(typeof(value))
-    let choices = value;
-
-    this.setState({selected: choices})
-    // grab each event
-    console.log("event was triggered and this is the value: ",value, this.state.selected)
+    console.log(value)
+    this.setState({selected: value})
   }
   
+  //event to handle adding item in dropdown to user's current selected categories
+  // NOT SURE IF THIS WORKS BUT WILL REFACTOR 
+  handleAddItem =(event) => {
+    const newCat = {
+      key:event.target.value,
+      text: event.target.value,
+      value: event.target.value
+    }
+    this.setState({selected: [...this.state.choices, newCat]});
+  }
+
+
   // event handler for submit
   handleSubmit = (event) => {
     console.log("this is the value",event.target)
-    
+    console.log("submit and this is selected array:", this.state.selected)    
+    console.log("this is the number of items in the selected array:", this.state.selected.length)
 
+    
     // handle the calls to the eventful api
     var _oArgs = {
       app_key: apiKey,
@@ -70,7 +80,12 @@ class AppViews extends Component {
         <div  style={appStyle}>
           <Form onSubmit={this.handleSubmit}>
             <FormField>
-              <Dropdown id={this.state.selected} placeholder='Categories' fluid multiple selection options={this.state.categories} onChange={this.handleChange}/>
+              <Dropdown 
+              onAddItem={this.handleAddItem} 
+              onChange={this.handleChange} 
+              placeholder='Categories' 
+              fluid multiple selection 
+              options={this.state.categories} />
               <span>Choose up to 3 categories.</span>
             </FormField>
             <Button>Submit</Button>
