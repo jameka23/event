@@ -1,149 +1,149 @@
 {
     "category": [
         {
-            "value": "Concerts & Tour Dates",
+            "key": "Concerts & Tour Dates",
             "text": "Concerts & Tour Dates",
-            "key": "music"
+            "value": "music"
         },
         {
-            "value": "Conferences & Tradeshows",
+            "key": "Conferences & Tradeshows",
             "text": "Conferences & Tradeshows",
-            "key": "conference"
+            "value": "conference"
         },
         {
-            "value": "Comedy",
+            "key": "Comedy",
             "text": "Comedy",
-            "key": "comedy"
+            "value": "comedy"
         },
         {
-            "value": "Education",
+            "key": "Education",
             "text": "Education",
-            "key": "learning_education"
+            "value": "learning_education"
         },
         {
-            "value": "Kids & Family",
+            "key": "Kids & Family",
             "text": "Kids & Family",
-            "key": "family_fun_kids"
+            "value": "family_fun_kids"
         },
         {
-            "value": "Festivals",
+            "key": "Festivals",
             "text": "Festivals",
-            "key": "festivals_parades"
+            "value": "festivals_parades"
         },
         {
-            "value": "Film",
+            "key": "Film",
             "text": "Film",
-            "key": "movies_film"
+            "value": "movies_film"
         },
         {
-            "value": "Food & Wine",
+            "key": "Food & Wine",
             "text": "Food & Wine",
-            "key": "food"
+            "value": "food"
         },
         {
-            "value": "Fundraising & Charity",
+            "key": "Fundraising & Charity",
             "text":"Fundraising & Charity",
-            "key": "fundraisers"
+            "value": "fundraisers"
         },
         {
-            "value": "Art Galleries & Exhibits",
+            "key": "Art Galleries & Exhibits",
             "text": "Art Galleries & Exhibits",
-            "key": "art"
+            "value": "art"
         },
         {
-            "value": "Health & Wellness",
+            "key": "Health & Wellness",
             "text": "Health & Wellness",
-            "key": "support"
+            "value": "support"
         },
         {
-            "value": "Holiday",
+            "key": "Holiday",
             "text": "Holiday",
-            "key": "holiday"
+            "value": "holiday"
         },
         {
-            "value": "Literary & Books",
+            "key": "Literary & Books",
             "text": "Literary & Books",
-            "key": "books"
+            "value": "books"
         },
         {
-            "value": "Museums & Attractions",
+            "key": "Museums & Attractions",
             "text": "Museums & Attractions",
-            "key": "attractions"
+            "value": "attractions"
         },
         {
-            "value": "Neighborhood",
+            "key": "Neighborhood",
             "text": "Neighborhood",
-            "key": "community"
+            "value": "community"
         },
         {
-            "value": "Business & Networking",
+            "key": "Business & Networking",
             "text": "Business & Networking",
-            "key": "business"
+            "value": "business"
         },
         {
-            "value": "Nightlife & Singles",
+            "key": "Nightlife & Singles",
             "text": "Nightlife & Singles",
-            "key": "singles_social"
+            "value": "singles_social"
         },
         {
-            "value": "University & Alumni",
+            "key": "University & Alumni",
             "text": "University & Alumni",
-            "key": "schools_alumni"
+            "value": "schools_alumni"
         },
         {
-            "value": "Organizations & Meetups",
+            "key": "Organizations & Meetups",
             "text": "Organizations & Meetups",
-            "key": "clubs_associations"
+            "value": "clubs_associations"
         },
         {
-            "value": "Outdoors & Recreation",
+            "key": "Outdoors & Recreation",
             "text": "Outdoors & Recreation",
-            "key": "outdoors_recreation"
+            "value": "outdoors_recreation"
         },
         {
-            "value": "Performing Arts",
+            "key": "Performing Arts",
             "text": "Performing Arts",
-            "key": "performing_arts"
+            "value": "performing_arts"
         },
         {
-            "value": "Pets",
+            "key": "Pets",
             "text": "Pets",
-            "key": "animals"
+            "value": "animals"
         },
         {
-            "value": "Politics & Activism",
+            "key": "Politics & Activism",
             "text": "Politics & Activism",
-            "key": "politics_activism"
+            "value": "politics_activism"
         },
         {
-            "value": "Sales & Retail",
+            "key": "Sales & Retail",
             "text": "Sales & Retail",
-            "key": "sales"
+            "value": "sales"
         },
         {
-            "value": "Science",
+            "key": "Science",
             "text": "Science",
-            "key": "science"
+            "value": "science"
         },
         {
-            "value": "Religion & Spirituality",
+            "key": "Religion & Spirituality",
             "text": "Religion & Spirituality",
-            "key": "religion_spirituality"
+            "value": "religion_spirituality"
         },
         {
-            "value": "Sports",
+            "key": "Sports",
             "text": "Sports",
-            "key": "sports"
+            "value": "sports"
         },
         {
-            "value": "Technology",
+            "key": "Technology",
             "text": "Technology",
-            "key": "technology"
+            "value": "technology"
         },
         {
-            "value": "Other & Miscellaneous",
+            "key": "Other & Miscellaneous",
             "text": "Other & Miscellaneous",
-            "key": "other"
+            "value": "other"
         }
     ]
 }
