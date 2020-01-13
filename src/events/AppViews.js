@@ -42,6 +42,7 @@ class AppViews extends Component {
   // using deconstructing assignment, I'm able to pass in the values of the event
   // weird 
   handleChange  = (event, {value}) => {
+    console.log(event)
     console.log(value)
     this.setState({selected: value})
   }
@@ -62,14 +63,47 @@ class AppViews extends Component {
   handleSubmit = (event) => {
     console.log("this is the value",event.target)
     console.log("submit and this is selected array:", this.state.selected)    
-    console.log("this is the number of items in the selected array:", this.state.selected.length)
 
-    
-    // handle the calls to the eventful api
-    var _oArgs = {
-      app_key: apiKey,
-      category: this.state.categories[1],
+    // create variable to hold the length of the selected
+    let choiceLen = 0;
+    choiceLen = this.state.selected.length;
+    console.log("this is the number of items in the selected array:", choiceLen)
+
+
+    //the function to make the fetch call to get the events
+    const getEvents = async(_oArgs) => {
+      let _this = this;
+      await window.EVDB.API.call('/events/search', _oArgs, function(oData) {
+        //after the call make a call to the function to grab the returned events
+        if(oData.events){
+          receiveEvents(oData.events.event)
+        }else{
+          console.log("Error occured making fetch call! Try again loser!")
+        }
+      })
+    }
+
+    const receiveEvents = (returnedEvents) => {
+      console.log(returnedEvents)
+    }
+
+    if(choiceLen > 3){
+      alert("Please choose 3 or less categories!")
+    }else{
       
+      for(let i =0; i< choiceLen; i++){
+        // handle the calls to the eventful api
+        var _oArgs = {
+          app_key: apiKey,
+          category: this.state.selected[i],
+          q: this.state.selected[i],
+          location: `${this.state.userLocation.lat}, ${this.state.userLocation.long}`,
+          page_size: 10,
+          date: 'Future'
+        }
+
+        getEvents(_oArgs)
+      }
     }
   }
 
