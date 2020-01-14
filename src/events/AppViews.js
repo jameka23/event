@@ -21,6 +21,7 @@ class AppViews extends Component {
     isSubmitted: false,
     userLocation: {lat: 32, long: 32} // default value is Nashville 
   }
+
   componentDidMount(){
     API.categories().then(categories => {
       console.log(categories)
@@ -98,8 +99,10 @@ class AppViews extends Component {
           category: this.state.selected[i],
           q: this.state.selected[i],
           location: `${this.state.userLocation.lat}, ${this.state.userLocation.long}`,
-          page_size: 10,
-          date: 'Future'
+          //page_size: 15,
+          date: 'Future',
+          within: 20,
+          //page_number:5
         }
 
         getEvents(_oArgs)
