@@ -19,8 +19,10 @@ class AppViews extends Component {
     categories : [],
     selected: [],
     isSubmitted: false,
+    theEvents: [],
     userLocation: {lat: 32, long: 32} // default value is Nashville 
   }
+
   componentDidMount(){
     API.categories().then(categories => {
       console.log(categories)
@@ -80,11 +82,17 @@ class AppViews extends Component {
         }else{
           console.log("Error occured making fetch call! Try again loser!")
         }
+
       })
     }
 
     const receiveEvents = (returnedEvents) => {
-      console.log(returnedEvents)
+      // let allEvents = this.state.theEvents.push(returnedEvents)
+
+      // using the spread operator to take both whats in the current state which shouldn't contain anything AND the newly added events. 
+      this.setState({theEvents: [...this.state.theEvents, returnedEvents]});
+      console.log(this.state.theEvents)
+      
     }
 
     if(choiceLen > 3){
@@ -98,8 +106,10 @@ class AppViews extends Component {
           category: this.state.selected[i],
           q: this.state.selected[i],
           location: `${this.state.userLocation.lat}, ${this.state.userLocation.long}`,
-          page_size: 10,
-          date: 'Future'
+          // page_size: 10,
+          date: 'Future',
+          within: 20,
+          //page_number:5
         }
 
         getEvents(_oArgs)
